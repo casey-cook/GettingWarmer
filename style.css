@@ -1,5 +1,6 @@
 body {
   background-image: url(img/body.jpg);
+  min-width: 700px;
 }
 
 h1, h4, p {
@@ -9,7 +10,7 @@ h1, h4, p {
 
 #msg-col {
   background-color: rgba(73, 73, 73, 0.7);
-  height: 80px;
+  min-height: 80px;
   border-radius: 5px;
   color: white;
   border: 2px solid white;
@@ -21,8 +22,17 @@ h1, h4, p {
 
 #content {
   background-image: url(img/aerial.jpg);
+  background-position: center;
   height: 525px;
-  width: 656px;
+  width: 100%;
   border: 10px solid white;
   border-radius: 5px;
+}
+
+#mouseArea {
+  border: 10px solid white;
+  background-color: rgba(73, 73, 73, 0.7);
+  height: 200px;
+  color: white;
+  padding-top: 25px;;
 }

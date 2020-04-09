@@ -5,27 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Getting Warmer - @spaceyjonescode</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
 </head>
 
 <body>
 <div class="container">
   
-  <div class="row mb-1" id="top-row">
-    <div class="col col-10"><h1>Getting Warmer</h1></div>
+  <div class="row mt-4 mb-4" id="top-row">
+    <div class="col col-10 mx-auto"><h1>Getting Warmer</h1></div>
   </div>
 
   <div class="row" id="msg-row">
-    <div class="col col-10" id="msg-col">
-      <h1>Instruction Area</h1>
+    <div class="col col-6 mx-auto" id="msg-col">
+      <h4 class="mt-1">Instructions:</h4>
+      <p>Move your mouse and follow the hints to find the secret location!</p>
     </div>
   </div>
   
   <div class="row" id="btn-row">
-    <div class="col col-4"><button class="btn btn-primary">Test Button</button></div>
+    <div class="col col-4 mx-auto mt-4 mb-4" id="btn-col"><button class="btn btn-success">Let's Go!</button></div>
   </div>
   
-  <div class="row p-3" id="game-row">
-    <div class="col col-12"></div>
+  <!--Content / Gameboard-->
+  <div class="row mt-1" id="game-row">
+    <div class="col col-12">
+      <div class="mx-auto mb-5" id="content"></div>
+    </div>
   </div>
   
 </div>

@@ -37,18 +37,18 @@ function startGame() {
 
 
   mouseTracking.innerText = 
-     `You are here: 
+    `
+     You are here: 
      X - Axis: ${e.offsetX} 
      Y - Axis: ${e.offsetY}
      
      Pixels Away: ${sumDiff}
-     
      `;
 
 
 
     if (((Math.abs(yDiff)) <= 30 ) && ((Math.abs(xDiff)) <=30 )) {
-      messageArea.innerHTML = "<h1 class='my-auto pt-2'>WINNER!!</h1><p>Not bad! Want to try again?</p>"
+      messageArea.innerHTML = `<h1 class='my-auto pt-2'>WINNER!!</h1><p>Not bad! The spot was: X: ${winningX}, Y: ${winningY}. Want to try again?</p>`
 
       btnStart.innerText = 'Reset';
 

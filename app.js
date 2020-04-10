@@ -3,7 +3,7 @@ const gameArea = document.querySelector('#content');
 const gameLocation = gameArea.getBoundingClientRect();
 const mouseTracking = document.getElementById('mouseArea')
 const btnStart = document.querySelector('button');
-console.log(btnStart);
+
 
 const gameXStart = gameLocation.x;
 const gameXEnd = gameLocation.x + gameLocation.width;
@@ -16,9 +16,11 @@ btnStart.addEventListener('click', startGame)
 
 function startGame() {
   //reset Instructions & Button
-  btnStart.innerText = 'Start Game';
+  mouseTracking.innerHTML = '';
+  btnStart.innerText = 'Reset';
+  btnStart.classList.add('btn-warning')
   messageArea.innerHTML = `<h4 class="mt-3">Instructions:</h4>
-  <p>Move your mouse across the city street and follow the hints to find the secret location!</p>`
+  <p>Move your mouse across the maze and follow the hints to find the secret location!</p>`
 
 
   //Set winning coordinates
@@ -30,32 +32,56 @@ function startGame() {
   //Track the mouse
   document.addEventListener('mousemove', runEvent);
   function runEvent(e) {
+
+    //Logic for determining distance from goal
     let xDiff = Math.abs(winningX - e.offsetX);
     let yDiff = Math.abs(winningY - e.offsetY);
     let sumDiff = xDiff + yDiff;
     // console.log(xDiff, yDiff);
 
+    function hint() {
+      switch (true) {
+        case (sumDiff > gameXEnd):
+          return "Glacial...";
+        case (sumDiff < gameXEnd) && (sumDiff > ((gameLocation.width)/2) ):
+          return "Still Cold...";
+        case (sumDiff < ((gameLocation.width)/10) ):
+          return "Red Hot!";
+        case (sumDiff < ((gameLocation.width)/6) ) && (sumDiff > ((gameLocation.width)/10) ):
+          return "Getting Hot...";
+        case (sumDiff < ((gameLocation.width)/4) ) && (sumDiff > ((gameLocation.width)/6) ):
+          return "Warmer...";
+        case (sumDiff < ((gameLocation.width)/2) ) && (sumDiff > ((gameLocation.width)/4) ):
+          return "Less cold...";
+      
+          default:
+            return "No Data";
+      }
+    }
 
-  mouseTracking.innerText = 
-    `
-     You are here: 
-     X - Axis: ${e.offsetX} 
-     Y - Axis: ${e.offsetY}
-     
-     Pixels Away: ${sumDiff}
-     `;
-
-
-
-    if (((Math.abs(yDiff)) <= 30 ) && ((Math.abs(xDiff)) <=30 )) {
+    if (((Math.abs(yDiff)) <= 35 ) && ((Math.abs(xDiff)) <=35 )) {
       messageArea.innerHTML = `<h1 class='my-auto pt-2'>WINNER!!</h1><p>Not bad! The spot was: X: ${winningX}, Y: ${winningY}. Want to try again?</p>`
+
+      mouseTracking.innerHTML = '<img src="img/giphy.gif" id="winGif"></img>';
 
       btnStart.innerText = 'Reset';
 
-    } 
+      document.removeEventListener('mousemove', runEvent);
+
+
+    } else {
+      mouseTracking.innerText = 
+      `
+      You are here: 
+      X - Axis: ${e.offsetX} 
+      Y - Axis: ${e.offsetY}
+      
+      Pixels Away: ${hint()}
+      `;
+    }
   }
 }
-startGame();
+
 
 //Construction Area
 console.log(gameArea);

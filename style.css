@@ -8,7 +8,6 @@ h1, h4, p {
   text-align: center;
 }
 
-
 h1 {
   font-family: 'Bungee Shade', cursive;
   font-size: 4rem;
@@ -17,10 +16,10 @@ h1 {
 
 #msg-col {
   background-color: rgba(73, 73, 73, 0.7);
-  min-height: 128px;
+  min-height: 144px;
   border-radius: 5px;
   color: white;
-  border: 2px solid white;
+  border: 10px solid white;
 }
 
 #btn-col {
@@ -48,8 +47,11 @@ h1 {
   color: white;
   text-align: center;
   padding-top: 15px;
-  
+}
 
+#fireGif {
+  height: 75px;
+  padding-bottom: 15px;
 }
 
 #winGif {

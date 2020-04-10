@@ -4,7 +4,6 @@ const gameLocation = gameArea.getBoundingClientRect();
 const mouseTracking = document.getElementById('mouseArea')
 const btnStart = document.querySelector('button');
 
-
 const gameXStart = gameLocation.x;
 const gameXEnd = gameLocation.x + gameLocation.width;
 const gameYStart = gameLocation.y;
@@ -17,11 +16,9 @@ btnStart.addEventListener('click', startGame)
 function startGame() {
   //reset Instructions & Button
   mouseTracking.innerHTML = '';
-  btnStart.innerText = 'Reset';
-  btnStart.classList.add('btn-warning')
+  document.getElementById("start").style.visibility = "hidden";
   messageArea.innerHTML = `<h4 class="mt-3">Instructions:</h4>
   <p>Move your mouse across the maze and follow the hints to find the secret location!</p>`
-
 
   //Set winning coordinates
   const winningX = ((Math.floor(Math.random() * ((gameLocation.width)-20))))+10;
@@ -42,17 +39,17 @@ function startGame() {
     function hint() {
       switch (true) {
         case (sumDiff > gameXEnd):
-          return "Glacial...";
+          return "Glacial...🥶";
         case (sumDiff < gameXEnd) && (sumDiff > ((gameLocation.width)/2) ):
-          return "Still Cold...";
+          return "Ice cold...🧊";
         case (sumDiff < ((gameLocation.width)/10) ):
-          return "Red Hot!";
+          return "Red Hot! 🔥";
         case (sumDiff < ((gameLocation.width)/6) ) && (sumDiff > ((gameLocation.width)/10) ):
-          return "Getting Hot...";
+          return "Getting Hot...🌶️";
         case (sumDiff < ((gameLocation.width)/4) ) && (sumDiff > ((gameLocation.width)/6) ):
-          return "Warmer...";
+          return "Warmer...☀️";
         case (sumDiff < ((gameLocation.width)/2) ) && (sumDiff > ((gameLocation.width)/4) ):
-          return "Less cold...";
+          return "Less cold...🌡️";
       
           default:
             return "No Data";
@@ -67,7 +64,7 @@ function startGame() {
       btnStart.innerText = 'Reset';
 
       document.removeEventListener('mousemove', runEvent);
-
+      document.getElementById("start").style.visibility = "visible";
 
     } else {
       mouseTracking.innerText = 
@@ -81,7 +78,6 @@ function startGame() {
     }
   }
 }
-
 
 //Construction Area
 console.log(gameArea);

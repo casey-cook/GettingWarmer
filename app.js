@@ -80,9 +80,9 @@ function startGame() {
 }
 
 //Construction Area
-console.log(gameArea);
-console.log(gameLocation);
-console.log(`X Start: ${gameXStart}`);
-console.log(`X End: ${gameXEnd}`);
-console.log(`Y Start: ${gameYStart}`);
-console.log(`Y End: ${gameYEnd}`);
+// console.log(gameArea);
+// console.log(gameLocation);
+// console.log(`X Start: ${gameXStart}`);
+// console.log(`X End: ${gameXEnd}`);
+// console.log(`Y Start: ${gameYStart}`);
+// console.log(`Y End: ${gameYEnd}`);
